@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock%}
+
+{% block body %}
+   <div id="main">
+   {% for area in areas %}
+      <div class="area">
+         <h2 class="areaName">{{ area.name }}</h2>
+         {% for project in area.projects %}
+         <div class="project" style="margin-left: 8px">
+            <h3 class="projectName">{{ project.code.emoji }}  {{ project.customer }} {{ project.country }} {{ project.name }}</h3>
+            {% for description in project.descriptions %}
+            <div class="descriptions" style="margin-left: 8px">
+               <ul>
+                  <li>{{ description }}</li>
+               </ul>
+            </div>
+            {% endfor %}
+         </div>
+         {% endfor %}
+      </div>
+   {% endfor %}
+   </div>
+{% endblock%}
+
