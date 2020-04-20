@@ -4,24 +4,56 @@
 {% endblock%}
 
 {% block body %}
-   <div id="main">
+   <table id="main" style="width: 100%; min-width: 560px; max-width: 800px;margin: 0 auto; color: #001135; background-color: #EDF3F5;">
+      <tr>
+         <td style="font-size: 32px; margin-bottom: 16px;">
+            <b>CE NUAGE LAT</b>
+         </td>
+      </tr>
    {% for area in areas %}
-      <div class="area">
-         <h2 class="areaName">{{ area.name }}</h2>
-         {% for project in area.projects %}
-         <div class="project" style="margin-left: 8px">
-            <h3 class="projectName">{{ project.code.emoji }}  {{ project.customer }} {{ project.country }} {{ project.name }}</h3>
-            {% for description in project.descriptions %}
-            <div class="descriptions" style="margin-left: 8px">
-               <ul>
-                  <li>{{ description }}</li>
-               </ul>
-            </div>
-            {% endfor %}
-         </div>
-         {% endfor %}
-      </div>
+      <tr>
+         <td>
+            <table class="area" style="width: 100%;">
+               <tr>
+                  <td style="font-size: 24px;">
+                     <b>{{ area.name }}</b>
+                  </td>
+               </tr>
+               {% for project in area.projects %}
+               <tr>
+                  <td>
+                     <table class="areaContent">
+                        <tr>
+                           <td>
+                              <table class="statusHeader">
+                                 <tr>
+                                    <td>
+                                       <img alt="status" src="{{ project.code.emoji }}" width="24px" />
+                                    </td>
+                                    <td>
+                                       <b>{{ project.customer }} {{ project.country }} {{ project.name }}</b>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </td> 
+                        </tr>
+                        <tr>
+                           <td>
+                              <ul>
+                              {% for description in project.descriptions %}
+                                 <li>{{ description }}</li>
+                              {% endfor %}
+                              </ul>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               {% endfor %}
+            </table>
+         </td>
+      </tr>   
    {% endfor %}
-   </div>
+   </table>
 {% endblock%}
 

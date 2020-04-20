@@ -1,13 +1,24 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
    <head>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
       <title>{% block title %}{% endblock %}</title>
-      <link rel="stylesheet" href="style.css">
-      {% block head %}{% endblock %}
+      <style  type="text/css">
+         img{
+            outline:none; 
+            text-decoration:none; 
+            -ms-interpolation-mode: bicubic;
+         } 
+         a img{
+            border:none;
+         } 
+        .image_fix{
+            display:block;
+         }
+      </style>
    </head>
-   <body>
-      {% block body %}{% endblock %}
+   <body style="width: 100%; min-width: 560px; max-width: 800px;margin: 0 auto; background-color: #BEC8D2;">
+      {% block body %}
+      {% endblock %}
    </body>
 </html>
